@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>xzerror</title>
+<title>Mera Pehla Page</title>
+<style>
+body { background: linear-gradient(120deg,#1a1a2e,#16213e,#0f3460); background-size: 300% 300%; animation: bgmove 8s infinite alternate; color:#ffd700; font-family:sans-serif; text-align:center; padding:20px; }
+@keyframes bgmove { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+h1 { animation: glow 2s infinite alternate, fadein 1s; }
+@keyframes glow { from { text-shadow: 0 0 5px #7fc4ff; } to { text-shadow: 0 0 20px #7fc4ff; } }
+p, h2, h3 { animation: fadein 1.5s; }
+@keyframes fadein { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.btn { display:inline-block; background:#7fc4ff; color:#111; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:bold; margin-top:15px; animation: fadein 2s; }
+</style>
 </head>
-<body style="background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:20px">
-<h1>A7</h1>
+<body>
+<h1>Vihan</h1>
 <p>Diploma 2nd year student</p>
-<h3>And I want to be a :</h3>
-<p>Entrepeneur</p>
-<a href="https://github.com" style="color:#7fc4ff">Mera GitHub</a>
+<h3>Mere interests:</h3>
+<p>Coding, Web Design, Gaming</p>
+<h2>About Me</h2>
+<p>Main Vihan. Web developer banne ka safar shuru kiya hai, aur ye mera pehla page hai.</p>
+<a class="btn" href="https://github.com/ankushxrn-ctrl">Mera GitHub</a>
 </body>
 </html>
