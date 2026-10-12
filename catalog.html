@@ -5,30 +5,35 @@
 <style>
 body { background:#0f0f1a; color:#fff; font-family:sans-serif; margin:0; padding:15px; }
 h1 { text-align:center; color:#ffd700; }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.card { background:#1a1a2e; border-radius:12px; padding:10px; text-align:center; }
-.card img { width:100%; border-radius:8px; margin-bottom:6px; }
-.price { color:#7fc4ff; font-weight:bold; font-size:18px; }
-.btn { display:inline-block; background:#25D366; color:#fff; padding:8px 16px; border-radius:20px; text-decoration:none; font-weight:bold; margin-top:8px; }
+.grid { display:grid; grid-template-columns:1fr; gap:16px; max-width:480px; margin:auto; }
+.card { background:#1a1a2e; border-radius:12px; padding:12px; text-align:center; }
+.photos { display:flex; overflow-x:auto; gap:8px; scroll-snap-type:x mandatory; border-radius:8px; }
+.photos img { width:100%; flex:0 0 100%; scroll-snap-align:center; border-radius:8px; }
+.price { color:#7fc4ff; font-weight:bold; font-size:20px; }
+.btn { display:inline-block; background:#25D366; color:#fff; padding:10px 20px; border-radius:20px; text-decoration:none; font-weight:bold; margin-top:8px; }
 </style>
 </head>
 <body>
 <h1>🛍️ Vihan Store</h1>
 <div class="grid">
 <div class="card">
+<div class="photos">
 <img src="Screenshot_20261012-084306.jpg">
 <img src="Screenshot_20261012-084240.jpg">
 <img src="Screenshot_20261012-084224.jpg">
 <img src="Screenshot_20261012-084325.jpg">
+</div>
 <p>Solid V-Neck Tiered Long Dress Flared Maxi Kurti for Women</p>
 <p class="price">₹999</p>
 <a class="btn" href="https://wa.me/919153040955?text=Hi!%20Mujhe%20Green%20Kurti%20Rs999%20chahiye.%20Price,%20size%20aur%20delivery%20details%20bata%20do.">Order Now</a>
 </div>
 <div class="card">
+<div class="photos">
 <img src="Screenshot_20261012-090456.jpg">
 <img src="Screenshot_20261012-090507.jpg">
 <img src="Screenshot_20261012-090444.jpg">
 <img src="Screenshot_20261012-090517.jpg">
+</div>
 <p>Solid V-Neck Tiered Long Dress Flared Maxi Kurti for Women</p>
 <p class="price">₹599</p>
 <a class="btn" href="https://wa.me/919153040955?text=Hi!%20Mujhe%20Kurti%20Rs599%20chahiye.%20Price,%20size%20aur%20delivery%20details%20bata%20do.">Order Now</a>
