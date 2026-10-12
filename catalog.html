@@ -4,21 +4,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vihan Store</title>
 <style>
-body { background:linear-gradient(135deg,#ff758c,#ff7eb3,#8e6cff); font-family:sans-serif; margin:0; padding:20px 15px 40px; }
-h1 { text-align:center; color:#fff; margin:10px 0 2px; }
+body { background:linear-gradient(270deg,#ff758c,#ff7eb3,#8e6cff,#4facfe,#43e97b); background-size:600% 600%; animation:bgmove 12s ease infinite; font-family:sans-serif; margin:0; padding:20px 15px 40px; }
+@keyframes bgmove { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+h1 { text-align:center; color:#fff; margin:10px 0 2px; animation:bob 3s ease-in-out infinite; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
 .sub { text-align:center; color:#ffe3f0; margin:0 0 18px; font-size:14px; }
 .grid { display:grid; grid-template-columns:1fr; gap:16px; max-width:480px; margin:auto; }
-.card { background:#fff; border-radius:16px; padding:12px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.25); position:relative; }
-.badge { position:absolute; top:10px; left:10px; background:#ff3d00; color:#fff; font-size:12px; font-weight:bold; padding:4px 10px; border-radius:12px; z-index:1; }
+.card { background:#fff; border-radius:16px; padding:12px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.25); position:relative; transition:transform 0.15s; }
+.card:active { transform:scale(0.97); }
+.badge { position:absolute; top:10px; left:10px; background:#ff3d00; color:#fff; font-size:12px; font-weight:bold; padding:4px 10px; border-radius:12px; z-index:1; animation:blink 1.5s infinite; }
+@keyframes blink { 50%{opacity:0.55} }
 .photos { display:flex; overflow-x:auto; gap:8px; scroll-snap-type:x mandatory; border-radius:10px; }
 .photos img { width:100%; flex:0 0 100%; scroll-snap-align:center; border-radius:10px; height:400px; object-fit:contain; background:#fafafa; }
 .name { color:#222; font-size:15px; margin:10px 6px 4px; }
 .price { color:#e60023; font-weight:bold; font-size:24px; margin:4px; }
-.btn { display:block; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; padding:12px; border-radius:25px; text-decoration:none; font-weight:bold; margin-top:8px; font-size:16px; }
+.btn { display:block; background:linear-gradient(90deg,#25D366,#128C7E); color:#fff; padding:12px; border-radius:25px; text-decoration:none; font-weight:bold; margin-top:8px; font-size:16px; animation:pulse 2s infinite; }
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6)} 70%{box-shadow:0 0 0 14px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
 </style>
 </head>
 <body>
-<h1>🛍️ Vihan Store</h1>
+<h1>🛍️ Vihan Store ✨</h1>
 <p class="sub">New collection • Order directly on WhatsApp</p>
 <div class="grid">
 <div class="card">
@@ -65,22 +70,4 @@ h1 { text-align:center; color:#fff; margin:10px 0 2px; }
 <p class="name">HETSA Women's Embroidered Plus Size Cotton Kurta (Pink)</p>
 <p class="price">₹319</p>
 <a class="btn" href="https://wa.me/919153040955?text=Hi%21+Mujhe+Pink+HETSA+Kurti+Rs319+chahiye.+Size+aur+delivery+details+bata+do.">Order on WhatsApp</a>
-</div>
-<div class="card">
-<div class="badge">🔥 New</div>
-<div class="photos">
-<img src="IMG-20261012-WA0038.jpg">
-<img src="IMG-20261012-WA0039.jpg">
-<img src="IMG-20261012-WA0040.jpg">
-</div>
-<p class="name">HETSA Women Cotton Blend Embroidered Plus Size Kurtis (Mustard)</p>
-<p class="price">₹299</p>
-<a class="btn" href="https://wa.me/919153040955?text=Hi%21+Mujhe+Mustard+HETSA+Kurti+Rs299+chahiye.+Size+aur+delivery+details+bata+do.">Order on WhatsApp</a>
-</div>
-<div class="card">
-<div class="badge">🔥 New</div>
-<div class="photos">
-<img src="IMG-20261012-WA0041.jpg">
-<img src="IMG-20261012-WA0042.jpg">
-<img src="IMG-20261012-WA0043.jpg">
 </div>
