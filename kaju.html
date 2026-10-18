@@ -1,4 +1,4 @@
-OCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -25,9 +25,58 @@ OCTYPE html>
   }
   .active { display: flex; }
   h1 { font-family: cursive; font-size: 30px; margin: 10px 0; color: #c2185b; }
-  #pct { color: #e91e8c; font-size: 32px; font-weight: bold; }
-  .bar { width: 260px; height: 10px; background: #ffc2e0; border-radius: 10px; margin-top: 14px; }
-  #fill { width: 0; height: 100%; background: #ff1493; border-radius: 10px; }
+
+  #s1 { padding: 0; position: relative; overflow: hidden; background: #fff8f0; }
+  .scene {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+  .scene.show { opacity: 1; pointer-events: auto; }
+  #sc1 { background: linear-gradient(135deg, #e91e8c, #b0125f); color: #fff; }
+  #sc2 { background: linear-gradient(180deg, #fff6ef, #ffe3ec); }
+  #sc3 {
+    background-color: #fff3e6;
+    background-image:
+      radial-gradient(circle at 25% 25%, #ffb3c6 0 18px, transparent 19px),
+      radial-gradient(circle at 75% 75%, #ff9eb5 0 18px, transparent 19px),
+      radial-gradient(circle at 75% 25%, #ffffff 0 14px, transparent 15px),
+      radial-gradient(circle at 25% 75%, #ffc9d6 0 14px, transparent 15px);
+    background-size: 70px 70px;
+  }
+  .small-t { font-size: 14px; letter-spacing: 1px; padding: 0 20px; }
+  .iloveyou { font-family: cursive; font-size: 54px; margin: 6px 0; text-shadow: 0 0 14px #ffd0e8; }
+  .tree-wrap { position: relative; width: 320px; height: 390px; }
+  .tree-wrap svg { position: absolute; top: 0; left: 0; }
+  .canopy { position: absolute; top: 0; left: 0; width: 320px; height: 300px; }
+  .hh {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0);
+    animation: pop 0.7s ease forwards;
+  }
+  @keyframes pop {
+    to { opacity: 1; transform: scale(1); }
+  }
+  .drop {
+    position: absolute;
+    opacity: 1;
+    animation: drop 2.6s ease-in forwards;
+  }
+  @keyframes drop {
+    to { transform: translateY(150px) rotate(40deg); opacity: 0; }
+  }
+  .cap { font-family: cursive; color: #b0125f; font-size: 26px; margin: 2px 0; }
+  .from { font-family: cursive; font-size: 44px; color: #9c2a5a; background: rgba(255,248,240,0.85); padding: 14px 26px; border-radius: 20px; }
+  .from small { display: block; font-size: 16px; font-family: Arial, sans-serif; margin-top: 6px; }
+  #openbtn { opacity: 0; transition: opacity 1.2s ease; }
+  #openbtn.show { opacity: 1; }
   .heart-main {
     font-size: 50px;
     width: 90px; height: 90px; line-height: 90px;
@@ -143,12 +192,33 @@ OCTYPE html>
 </style>
 </head>
 <body>
-
-<div class="screen active" id="s1">
-  <p>Measuring your cuteness...</p>
-  <div id="pct">0%</div>
-  <div class="bar"><div id="fill"></div></div>
+  <div class="screen active" id="s1">
+  <div class="scene" id="sc1">
+    <p class="small-t">this one is for you...</p>
+    <div class="iloveyou">I Love<br>You</div>
+    <p class="small-t">to the best thing that ever happened to me</p>
+  </div>
+  <div class="scene" id="sc2">
+    <div class="tree-wrap" id="treewrap">
+      <svg width="320" height="390" viewBox="0 0 320 390">
+        <path d="M150 390 C152 340 158 300 160 250 L170 250 C170 300 176 340 178 390 Z" fill="#6b4423"/>
+        <path d="M162 270 C150 240 120 220 98 190" stroke="#6b4423" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <path d="M168 265 C185 235 210 215 232 185" stroke="#6b4423" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <path d="M165 255 C163 220 160 190 160 150" stroke="#6b4423" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M120 215 C105 215 92 222 80 232" stroke="#6b4423" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M212 212 C228 212 240 220 252 230" stroke="#6b4423" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="canopy" id="canopy"></div>
+    </div>
+    <div class="cap">I love you 💗</div>
+    <p class="small-t">made for you, by hand<br>and every ordinary day with you</p>
+  </div>
+  <div class="scene" id="sc3">
+    <div class="from">From me to you.<small>this is only for you, Kaju ji 🌹</small></div>
+    <button id="openbtn">Tap to open 💌</button>
+  </div>
 </div>
+
 <div class="screen" id="s2">
   <div class="heart-main">💖</div>
   <h1>Just for you</h1>
@@ -170,7 +240,6 @@ OCTYPE html>
   <div class="row" data-t="Aapke bina din toh guzar jaata hai, par aapse baat ho jaaye na toh din aur bhi achha lagta haiii 🥹💖&#10;Aap meri life ka woh pyaara sa part ho jise main hamesha special rakhna chahta hoon. 🫶🏻🎀"><div class="ic c5">🧸</div><div class="tx">Tap to reveal 💗</div></div>
   <button id="more2">Next →</button>
 </div>
-
 <div class="screen" id="s4">
   <div class="card">
     <div class="banner b-env">💌</div>
@@ -188,6 +257,7 @@ OCTYPE html>
   <div class="note" id="note"></div>
   <button id="nextp">One more thing 💍 →</button>
 </div>
+
 <div class="screen" id="s6">
   <div id="ask">
     <div class="card">
@@ -215,7 +285,7 @@ OCTYPE html>
 </div>
 
 <script>
-  var message = `Dear Kaju jiii, my favourite human… 🥹💗
+  var message = `Dear Kaju jiii, my favourite girl… 🥹💗
 
 Pata hai, aapki ek baat mujhe bahut pasand hai? Aapko shayad khud bhi nahi pata hoga ki aap apni chhoti-chhoti baaton se mujhe kitna khush kar dete ho. 😭💞
 
@@ -229,7 +299,7 @@ Basically, mujhe aapse sirf pyaar nahi karna… mujhe aapke saath bahut saari py
 
 Okay basss, ab zyada emotional nahi hote, warna main yahin baithkar aapki cuteness ke baare mein 500 aur paragraphs likh dunga. 😭🤌🏻
 
-I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE HUMAN, MY LITTLE HAPPINESS. 💋💗🧿`;
+I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE GIRL, MY LITTLE HAPPINESS. 💋💗🧿`;
 
   function show(id) {
     var all = document.querySelectorAll(".screen");
@@ -239,16 +309,67 @@ I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE HUMAN, MY LITTLE HAPP
     document.getElementById(id).classList.add("active");
   }
 
-  var p = 0;
-  var timer = setInterval(function () {
-    p = p + 2;
-    document.getElementById("pct").textContent = p + "%";
-    document.getElementById("fill").style.width = p + "%";
-    if (p >= 100) {
-      clearInterval(timer);
-      show("s2");
+  function scene(id) {
+    var all = document.querySelectorAll(".scene");
+    for (var i = 0; i < all.length; i++) {
+      all[i].classList.remove("show");
     }
-  }, 60);
+    document.getElementById(id).classList.add("show");
+  }
+
+  var emo = ["💗", "💖", "🩷", "💕", "🧡", "💛", "🌸"];
+  var treeOn = false;
+  function growTree() {
+    var canopy = document.getElementById("canopy");
+    for (var i = 0; i < 280; i++) {
+      var t = Math.random() * Math.PI * 2;
+      var s = Math.sqrt(Math.random());
+      if (i < 90) { s = 0.9 + Math.random() * 0.1; }
+      var x = 16 * Math.pow(Math.sin(t), 3) * s;
+      var y = (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * s;
+      var h = document.createElement("span");
+      h.className = "hh";
+      h.textContent = emo[i % emo.length];
+      h.style.left = (150 + x * 8.8) + "px";
+      h.style.top = (125 - y * 8.2) + "px";
+      h.style.fontSize = (13 + Math.random() * 11) + "px";
+      h.style.animationDelay = (i * 0.014) + "s";
+      canopy.appendChild(h);
+    }
+    treeOn = true;
+    setTimeout(dropLoop, 4500);
+  }
+
+  function dropLoop() {
+    if (!treeOn) { return; }
+    var wrap = document.getElementById("treewrap");
+    var d = document.createElement("span");
+    d.className = "drop";
+    d.textContent = emo[Math.floor(Math.random() * emo.length)];
+    d.style.left = (70 + Math.random() * 180) + "px";
+    d.style.top = (190 + Math.random() * 40) + "px";
+    d.style.fontSize = (14 + Math.random() * 8) + "px";
+    wrap.appendChild(d);
+    setTimeout(function () { wrap.removeChild(d); }, 2700);
+    setTimeout(dropLoop, 450);
+  }
+
+  scene("sc1");
+  setTimeout(function () {
+    scene("sc2");
+    growTree();
+  }, 3500);
+  setTimeout(function () {
+    treeOn = false;
+    scene("sc3");
+  }, 11500);
+  setTimeout(function () {
+    document.getElementById("openbtn").classList.add("show");
+  }, 13000);
+
+  document.getElementById("openbtn").addEventListener("click", function () {
+    show("s2");
+  });
 
   var rows = document.querySelectorAll(".row");
   for (var i = 0; i < rows.length; i++) {
@@ -282,6 +403,7 @@ I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE HUMAN, MY LITTLE HAPP
   document.getElementById("nextp").addEventListener("click", function () {
     show("s6");
   });
+
   var no = document.getElementById("no");
   function runAway() {
     no.style.position = "fixed";
