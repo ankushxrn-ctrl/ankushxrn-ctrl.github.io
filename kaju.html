@@ -1,0 +1,322 @@
+OCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You are special!</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fff0f7, #ffd6ec);
+    font-family: Arial, sans-serif;
+    color: #7a1050;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  .screen {
+    display: none;
+    min-height: 100vh;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .active { display: flex; }
+  h1 { font-family: cursive; font-size: 30px; margin: 10px 0; color: #c2185b; }
+  #pct { color: #e91e8c; font-size: 32px; font-weight: bold; }
+  .bar { width: 260px; height: 10px; background: #ffc2e0; border-radius: 10px; margin-top: 14px; }
+  #fill { width: 0; height: 100%; background: #ff1493; border-radius: 10px; }
+  .heart-main {
+    font-size: 50px;
+    width: 90px; height: 90px; line-height: 90px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 25px #ff69b4;
+    margin: 0 auto;
+  }
+  .row {
+    width: 310px;
+    margin: 7px 0;
+    padding: 10px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(255, 20, 147, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  .ic {
+    flex: 0 0 54px;
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 14px;
+    margin-right: 12px;
+  }
+  .tx {
+    white-space: pre-line;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #6a1048;
+  }
+  .c1 { background: linear-gradient(135deg, #ffd1dc, #ff9fc0); }
+  .c2 { background: linear-gradient(135deg, #ffe0f0, #ffb6d9); }
+  .c3 { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); }
+  .c4 { background: linear-gradient(135deg, #ffdde1, #ee9ca7); }
+  .c5 { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+  button {
+    margin-top: 18px;
+    background: #ff1493;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 34px;
+    font-size: 18px;
+    box-shadow: 0 0 15px #ff69b4;
+  }
+  .card {
+    width: 310px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 4px 18px rgba(255, 20, 147, 0.25);
+    overflow: hidden;
+    padding-bottom: 18px;
+  }
+  .banner {
+    height: 170px;
+    line-height: 170px;
+    font-size: 80px;
+    margin-bottom: 14px;
+  }
+  .b-env { background: #c8ece6; }
+  .b-gift { background: linear-gradient(135deg, #ffe3ef, #ffb3d1); }
+  .b-yes {
+    background: repeating-conic-gradient(#ffb3d9 0deg 10deg, #ffd6ec 10deg 20deg);
+  }
+  .big {
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 0 16px;
+    margin: 6px 0;
+  }
+  .note {
+    width: 300px;
+    min-height: 420px;
+    margin-top: 14px;
+    padding: 22px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(255, 20, 147, 0.25);
+    color: #5a1040;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+  #nextp { display: none; }
+  #yes { font-size: 22px; padding: 14px 40px; }
+  #no { background: #999; box-shadow: none; position: relative; }
+  #yesmsg { display: none; }
+  .fly {
+    position: fixed;
+    bottom: -40px;
+    font-size: 28px;
+    animation: up 4s linear forwards;
+  }
+  @keyframes up {
+    to { transform: translateY(-110vh); opacity: 0; }
+  }
+  .fall {
+    position: fixed;
+    top: -30px;
+    font-size: 20px;
+    animation: down 3.5s linear forwards;
+  }
+  @keyframes down {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0.6; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen active" id="s1">
+  <p>Measuring your cuteness...</p>
+  <div id="pct">0%</div>
+  <div class="bar"><div id="fill"></div></div>
+</div>
+<div class="screen" id="s2">
+  <div class="heart-main">💖</div>
+  <h1>Just for you</h1>
+  <p>Tap each one to reveal</p>
+  <div class="row" data-t="I LOVEEE your blushin' faceee 😭😳🙈&#10;Aap blush karte ho aur mere dil ki beats fast ho jaate h. 😭💗"><div class="ic c1">❤️</div><div class="tx">Tap to reveal 🤍</div></div>
+  <div class="row" data-t="I LOVEEE YOU SOOO MUCHHH, BBUUU!! 💗🫠&#10;Itna zyada ki explain karne baithun toh words hi khatam ho jaayein. 🥹"><div class="ic c2">💝</div><div class="tx">Tap to reveal 🤍</div></div>
+  <div class="row" data-t="Aapko dekhte hi mera poora din ban jaata haiii 🫶🏻🌝&#10;Aap meri daily dose of happiness ho, samjhe bachuu aap? 🤌🏻💞"><div class="ic c3">☁️</div><div class="tx">Tap to reveal 🤍</div></div>
+  <div class="row" data-t="Aap toh seedha mere dil mai ghr bana chuke ho 💖🥹&#10;Aur rent bhi nahi dena, kyunki yeh ghar aapka hi hai. 😭🏡💗"><div class="ic c4">🌸</div><div class="tx">Tap to reveal 🤍</div></div>
+  <div class="row" data-t="MELIIII CUTUUUU, MERI PYAARIII BACHUUU!! 😭🤌🏻🎀&#10;Aapko dekhkar bas ek hi thought aata hai: ITNAAA CUTE KAISE HO AAPPP?! 🫠💋"><div class="ic c5">🧸</div><div class="tx">Tap to reveal 🤍</div></div>
+  <button id="more">See more →</button>
+</div>
+
+<div class="screen" id="s3">
+  <h1>Meri jaan ✨</h1>
+  <p>Tap each one to reveal</p>
+  <div class="row" data-t="Aapki smileee meri all-time favourite haiii ☺️💗&#10;Aap haste raha karo, aapki smile dekhkar mai bhi automatically khush ho jata hu. 🥹🫶🏻"><div class="ic c2">😊</div><div class="tx">Tap to reveal 💗</div></div>
+  <div class="row" data-t="Aapse baat karke jo sukoon milta hai na, woh alag hi haiii 🫂💞&#10;Chahe din kaisa bhi gaya ho, aapse baat karke sab kuch thoda better lagne lagta hai. 🥹"><div class="ic c3">🌙</div><div class="tx">Tap to reveal 💗</div></div>
+  <div class="row" data-t="Aap mere liye sirf special nahi ho, AAP TOH MERI FAVOURITE PERSON HO!! ❤️‍🩹💗&#10;Woh person jisse main har chhoti-badi baat share karna chahta hoon. 🥹💌"><div class="ic c1">💌</div><div class="tx">Tap to reveal 💗</div></div>
+  <div class="row" data-t="Aapke bina din toh guzar jaata hai, par aapse baat ho jaaye na toh din aur bhi achha lagta haiii 🥹💖&#10;Aap meri life ka woh pyaara sa part ho jise main hamesha special rakhna chahta hoon. 🫶🏻🎀"><div class="ic c5">🧸</div><div class="tx">Tap to reveal 💗</div></div>
+  <button id="more2">Next →</button>
+</div>
+
+<div class="screen" id="s4">
+  <div class="card">
+    <div class="banner b-env">💌</div>
+    <h1>EK CHHOTI SI BAAT AUR… 👀💗</h1>
+    <p class="big">Waise toh aap already mere dil ke owner ho… 😭🤌🏻</p>
+    <p class="big">But ek sawaal hai jo main aapse puchhna chahta hoon… 🥹💌</p>
+    <p class="big"><b>Will you let me love you a little more, every single day? 😚💖</b></p>
+    <p class="big">Heheee, abhi toh aur bhi pyaar baaki hai, Kaju jiii! 🫠🎀</p>
+  </div>
+  <button id="more3">Read my letter →</button>
+</div>
+
+<div class="screen" id="s5">
+  <h1>A little letter for you</h1>
+  <div class="note" id="note"></div>
+  <button id="nextp">One more thing 💍 →</button>
+</div>
+<div class="screen" id="s6">
+  <div id="ask">
+    <div class="card">
+      <div class="banner b-gift">🧸🌹🎁</div>
+      <h1>Kaju jiiii… 🥹💗</h1>
+      <p class="big">Ek baat puchhun? 👉🏻👈🏻</p>
+      <p class="big"><b>Will you be my favourite person, today, tomorrow and in all the little moments yet to come? 💖</b></p>
+      <p class="big">Will you be mine? 🥹🫠🩷</p>
+    </div>
+    <button id="yes">Yes 💖</button>
+    <button id="no">No</button>
+  </div>
+  <div id="yesmsg">
+    <div class="card">
+      <div class="banner b-yes">🎉</div>
+      <h1>Kaju ji said YES!! 🎉💖</h1>
+      <p class="big"><b>YAYYYYYYYYY!! 😭🎉💗<br>AAPNE HAA KEH DIYA!! 🥹💋</b></p>
+      <p class="big">HEHEHEHE MUJHE PATA THAAA!! 😭🤌🏻💞</p>
+      <p class="big">Ab toh aapko aur bhi zyada pyaar karne ka bahana mil gaya mujheee. 🫠💗</p>
+      <p class="big"><b>I LOVEEE YOU SOOO MUCHHH, KAJU JIIII!! ❤️‍🩹🫂</b></p>
+      <p class="big">Aap aur main, dher saari baatein, silly fights, endless laughter aur bahut saari beautiful memories… bas aise hi pyaar ke saath aage badhte rahein. 🥹🎀💖</p>
+      <p class="big"><b>MUCH MUCH LOVE TO MY FAVOURITE GIRL!! 💋💗🧿</b></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  var message = `Dear Kaju jiii, my favourite human… 🥹💗
+
+Pata hai, aapki ek baat mujhe bahut pasand hai? Aapko shayad khud bhi nahi pata hoga ki aap apni chhoti-chhoti baaton se mujhe kitna khush kar dete ho. 😭💞
+
+Aapka woh blush karna, pyaari-pyaari baatein karna, bina kisi reason ke cute lagna (which is honestly SO UNFAIR 😭🤌🏻), aur phir mera aapko dekhkar bas smile karte rehna… uff, kya hi bolun main!! 🫠💗
+
+Kabhi-kabhi mann karta hai aapko bataun ki aap mere liye kitne special ho, par phir lagta hai ki itne saare feelings ko words mein kaise fit karun? Aap meri life ka woh pyaara sa hissa ho jisse baat karke dil halka ho jaata hai aur normal sa din bhi special lagne lagta hai. 🫶🏻
+
+And bbu, I don't need every day to be perfect. Bas un ordinary days mein bhi aapke saath hasi-mazaak karna, random baatein karna, ek-doosre ko samajhna aur chhoti-chhoti khushiyan share karna chahta hoon. 💌
+
+Basically, mujhe aapse sirf pyaar nahi karna… mujhe aapke saath bahut saari pyaari memories bhi banani hain. 😭🫂💖
+
+Okay basss, ab zyada emotional nahi hote, warna main yahin baithkar aapki cuteness ke baare mein 500 aur paragraphs likh dunga. 😭🤌🏻
+
+I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE HUMAN, MY LITTLE HAPPINESS. 💋💗🧿`;
+
+  function show(id) {
+    var all = document.querySelectorAll(".screen");
+    for (var i = 0; i < all.length; i++) {
+      all[i].classList.remove("active");
+    }
+    document.getElementById(id).classList.add("active");
+  }
+
+  var p = 0;
+  var timer = setInterval(function () {
+    p = p + 2;
+    document.getElementById("pct").textContent = p + "%";
+    document.getElementById("fill").style.width = p + "%";
+    if (p >= 100) {
+      clearInterval(timer);
+      show("s2");
+    }
+  }, 60);
+
+  var rows = document.querySelectorAll(".row");
+  for (var i = 0; i < rows.length; i++) {
+    rows[i].addEventListener("click", function () {
+      this.querySelector(".tx").textContent = this.getAttribute("data-t");
+    });
+  }
+
+  document.getElementById("more").addEventListener("click", function () {
+    show("s3");
+  });
+
+  document.getElementById("more2").addEventListener("click", function () {
+    show("s4");
+  });
+
+  document.getElementById("more3").addEventListener("click", function () {
+    show("s5");
+    var n = document.getElementById("note");
+    var k = 0;
+    var t = setInterval(function () {
+      n.textContent = message.slice(0, k);
+      k = k + 1;
+      if (k > message.length) {
+        clearInterval(t);
+        document.getElementById("nextp").style.display = "inline-block";
+      }
+    }, 20);
+  });
+
+  document.getElementById("nextp").addEventListener("click", function () {
+    show("s6");
+  });
+  var no = document.getElementById("no");
+  function runAway() {
+    no.style.position = "fixed";
+    no.style.left = Math.random() * 70 + "vw";
+    no.style.top = Math.random() * 80 + "vh";
+  }
+  no.addEventListener("mouseover", runAway);
+  no.addEventListener("touchstart", function (e) {
+    e.preventDefault();
+    runAway();
+  });
+  no.addEventListener("click", runAway);
+
+  document.getElementById("yes").addEventListener("click", function () {
+    document.getElementById("ask").style.display = "none";
+    document.getElementById("yesmsg").style.display = "block";
+    var hearts = ["💖", "💗", "💕", "❤️", "💞"];
+    var conf = ["🎊", "🎉", "✨", "🎀"];
+    for (var i = 0; i < 40; i++) {
+      var h = document.createElement("div");
+      h.className = "fly";
+      h.textContent = hearts[i % hearts.length];
+      h.style.left = Math.random() * 95 + "vw";
+      h.style.animationDelay = Math.random() * 2 + "s";
+      document.body.appendChild(h);
+    }
+    for (var j = 0; j < 40; j++) {
+      var c = document.createElement("div");
+      c.className = "fall";
+      c.textContent = conf[j % conf.length];
+      c.style.left = Math.random() * 95 + "vw";
+      c.style.animationDelay = Math.random() * 2 + "s";
+      document.body.appendChild(c);
+    }
+  });
+</script>
+</body>
+</html>
