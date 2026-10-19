@@ -192,6 +192,7 @@
 </style>
 </head>
 <body>
+  <audio id="bgm" src="AUD-20261019-WA0001.mp3" loop preload="auto"></audio>
   <div class="screen active" id="s1">
   <div class="scene" id="sc1">
     <p class="small-t">this one is for you...</p>
@@ -218,13 +219,12 @@
     <button id="openbtn">Tap to open 💌</button>
   </div>
 </div>
-
 <div class="screen" id="s2">
   <div class="heart-main">💖</div>
   <h1>Just for you</h1>
   <p>Tap each one to reveal</p>
   <div class="row" data-t="I LOVEEE your blushin' faceee 😭😳🙈&#10;Aap blush karte ho aur mere dil ki beats fast ho jaate h. 😭💗"><div class="ic c1">❤️</div><div class="tx">Tap to reveal 🤍</div></div>
-  <div class="row" data-t="I LOVEEE YOU SOOO MUCHHH, BBUUU!! 💗🫠&#10;Itna zyada ki explain karne baithun toh words hi khatam ho jaayein. 🥹"><div class="ic c2">💝</div><div class="tx">Tap to reveal 🤍</div></div>
+  <div class="row" data-t="I LOVEEE YOU SOOO MUCHHH, BBUUU!! 💗🫠&#10;Itna zyada ki explain karne baithun toh words hi khatam ho jayein. 🥹"><div class="ic c2">💝</div><div class="tx">Tap to reveal 🤍</div></div>
   <div class="row" data-t="Aapko dekhte hi mera poora din ban jaata haiii 🫶🏻🌝&#10;Aap meri daily dose of happiness ho, samjhe bachuu aap? 🤌🏻💞"><div class="ic c3">☁️</div><div class="tx">Tap to reveal 🤍</div></div>
   <div class="row" data-t="Aap toh seedha mere dil mai ghr bana chuke ho 💖🥹&#10;Aur rent bhi nahi dena, kyunki yeh ghar aapka hi hai. 😭🏡💗"><div class="ic c4">🌸</div><div class="tx">Tap to reveal 🤍</div></div>
   <div class="row" data-t="MELIIII CUTUUUU, MERI PYAARIII BACHUUU!! 😭🤌🏻🎀&#10;Aapko dekhkar bas ek hi thought aata hai: ITNAAA CUTE KAISE HO AAPPP?! 🫠💋"><div class="ic c5">🧸</div><div class="tx">Tap to reveal 🤍</div></div>
@@ -257,7 +257,6 @@
   <div class="note" id="note"></div>
   <button id="nextp">One more thing 💍 →</button>
 </div>
-
 <div class="screen" id="s6">
   <div id="ask">
     <div class="card">
@@ -339,7 +338,6 @@ I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE GIRL, MY LITTLE HAPPI
     treeOn = true;
     setTimeout(dropLoop, 4500);
   }
-
   function dropLoop() {
     if (!treeOn) { return; }
     var wrap = document.getElementById("treewrap");
@@ -368,6 +366,16 @@ I LOVE YOU SOOO MUCHHH, KAJU JIII!! MY CUTUU, MY FAVOURITE GIRL, MY LITTLE HAPPI
   }, 13000);
 
   document.getElementById("openbtn").addEventListener("click", function () {
+    var a = document.getElementById("bgm");
+    a.volume = 0;
+    var p = a.play();
+    if (p && p.catch) { p.catch(function () {}); }
+    var v = 0;
+    var f = setInterval(function () {
+      v = v + 0.05;
+      if (v >= 1) { v = 1; clearInterval(f); }
+      a.volume = v;
+    }, 150);
     show("s2");
   });
 
